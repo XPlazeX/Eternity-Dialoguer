@@ -26,3 +26,6 @@ A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dial
 A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.g.resources
 A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity_Dialoger.Properties.Resources.resources
 A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.csproj.GenerateResource.Cache
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe.config
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.exe
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.pdb
