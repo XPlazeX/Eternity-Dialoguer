@@ -96,5 +96,10 @@ namespace Eternity_Dialoger.Models
         {
             DialogueObjects.RemoveAt(DialogueObjects.Count - 1);
         }
+
+        public void AddSelection()
+        {
+
+        }
     }
 }

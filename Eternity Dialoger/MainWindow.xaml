@@ -55,8 +55,8 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style>
+        
     </Window.Resources>
     <Grid>
         <DataGrid x:Name="constructGrid" ItemsSource="{Binding DialogueObjects}"
@@ -66,7 +66,13 @@
                   CanUserAddRows="False" CanUserDeleteRows="False"
                   CellStyle="{StaticResource Body_Content_Data_Grid_Centering}">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Binding="{Binding Path=IsHero}" Header="Наша речь?" Width="80"/>
+                <DataGridTemplateColumn Header="Наша речь?" Width="80" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Path=IsHero, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridComboBoxColumn 
                     SelectedValueBinding="{Binding CharacterID}"
                     DisplayMemberPath="Name"
@@ -80,6 +86,7 @@
                     <DataGridComboBoxColumn.EditingElementStyle>
                         <Style TargetType="{x:Type ComboBox}">
                             <Setter Property="ItemsSource" Value="{Binding Path=DataContext.CharacterTypes, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                            <Setter Property="IsDropDownOpen" Value="True"/>
                         </Style>
                     </DataGridComboBoxColumn.EditingElementStyle>
                 </DataGridComboBoxColumn>
@@ -96,6 +103,7 @@
                     <DataGridComboBoxColumn.EditingElementStyle>
                         <Style TargetType="{x:Type ComboBox}">
                             <Setter Property="ItemsSource" Value="{Binding Path=DataContext.VoiceTypes, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                            <Setter Property="IsDropDownOpen" Value="True"/>
                         </Style>
                     </DataGridComboBoxColumn.EditingElementStyle>
                 </DataGridComboBoxColumn>
@@ -112,6 +120,7 @@
                     <DataGridComboBoxColumn.EditingElementStyle>
                         <Style TargetType="{x:Type ComboBox}">
                             <Setter Property="ItemsSource" Value="{Binding Path=DataContext.DurationTypes, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                            <Setter Property="IsDropDownOpen" Value="True"/>
                         </Style>
                     </DataGridComboBoxColumn.EditingElementStyle>
                 </DataGridComboBoxColumn>

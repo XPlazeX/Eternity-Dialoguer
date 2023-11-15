@@ -29,3 +29,14 @@ A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dial
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe.config
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.exe
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.pdb
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\bin\Debug\Eternity Dialoger.pdb
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.csprojResolveAssemblyReference.cache
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\MainWindow.g.cs
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\App.g.cs
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.cache
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.lref
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\MainWindow.baml
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.g.resources
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity_Dialoger.Properties.Resources.resources
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.csproj.GenerateResource.Cache

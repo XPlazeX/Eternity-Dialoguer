@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.ComponentModel;
 using Eternity_Dialoger.Models;
 using System.Collections.ObjectModel;
@@ -21,7 +20,8 @@ namespace Eternity_Dialoger
     public partial class MainWindow : Window
     {
         const string programm_name = "Eternity Dialoguer";
-        //private BindingList<DialogueObject> DialogueData;
+
+        private string _editingFilename = "Dialog Animator;";
 
         public MainWindow()
         {
@@ -35,7 +35,6 @@ namespace Eternity_Dialoger
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //DialogueObjects.Add(new DialogueObject());
             App.ActiveViewModel.AddDialogeObject();
             counterLabel.Content = $"Кол-во записей: {App.ActiveViewModel.DialogueObjects.Count}";
         }
@@ -49,7 +48,7 @@ namespace Eternity_Dialoger
         private void openButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.FileName = "Dialog Animator";
+            dialog.FileName = _editingFilename;
             dialog.DefaultExt = ".csv";
             dialog.Filter = "Text documents (.csv)|*.csv";
 
@@ -60,6 +59,8 @@ namespace Eternity_Dialoger
                 string filename = dialog.FileName;
                 Title = programm_name + " " + filename;
 
+                _editingFilename = Path.GetFileNameWithoutExtension(filename);
+
                 App.ActiveViewModel.SetData(FileHandler.OpenCSVFile(filename));
             }
 
@@ -68,8 +69,10 @@ namespace Eternity_Dialoger
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            constructGrid.CommitEdit();
+
             var dialog = new Microsoft.Win32.SaveFileDialog();
-            dialog.FileName = "Dialog Animator";
+            dialog.FileName = _editingFilename;
             dialog.DefaultExt = ".csv";
             dialog.Filter = "Text documents (.csv)|*.csv";
 
