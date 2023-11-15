@@ -5,7 +5,7 @@ winexe
 C#
 .cs
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\
-Eternity_Dialoger
+Eternity_Dialoguer
 none
 false
 DEBUG;TRACE
@@ -16,5 +16,5 @@ A:\GIT\Eternity-Dialoguer\Eternity Dialoger\App.xaml
 13738642453
 ConfigWindow.xaml;MainWindow.xaml;
 
-True
+False
 

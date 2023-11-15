@@ -8,7 +8,8 @@
         Title="Eternity Dialoguer"
         Icon="/resources/EternityDialoguerIcon.png"
         Background="{DynamicResource commonBG}"
-        Height="496" Width="1348" Loaded="Window_Loaded" MinWidth="1348" MinHeight="250" MaxWidth="1400">
+        WindowStartupLocation="CenterScreen"
+        Height="496" Width="1348" Loaded="Window_Loaded" MinWidth="1348" MinHeight="250" MaxWidth="1470">
     <Window.Resources>
         <SolidColorBrush Color="#FF242429" x:Key="commonBG"/>
         <SolidColorBrush Color="#FF32323C" x:Key="lightenBG"/>

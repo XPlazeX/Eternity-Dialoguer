@@ -7,7 +7,7 @@
     <ProjectGuid>{C185FD56-B19A-43E2-BE0F-435BB0A4370E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eternity_Dialoger</RootNamespace>
+    <RootNamespace>Eternity_Dialoguer</RootNamespace>
     <AssemblyName>Eternity Dialoger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

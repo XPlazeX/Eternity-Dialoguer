@@ -9,7 +9,7 @@ namespace Eternity_Dialoger.Models
 {
     public class ViewModel
     {
-        const int min_message_symbols_for_shortest_voice = 18;
+        const int min_message_symbols_for_shortest_voice = 15;
         const int letters_per_voice_duration = 5;
 
         public ObservableCollection<DialogueObject> DialogueObjects { get; private set; }
@@ -25,6 +25,12 @@ namespace Eternity_Dialoger.Models
             {
                 new DialogueObject() {CharacterID = 0, Text="Приветствую тебя, создатель!" }
             };
+
+            Load();
+        }
+
+        public void Load()
+        {
             LoadDefaultVoices();
             LoadDefaultDurations();
             LoadConfig();
@@ -33,7 +39,7 @@ namespace Eternity_Dialoger.Models
 
             for (int i = 0; i < ConfigObjects.Count; i++)
             {
-                CharacterTypes.Add(new CharacterType() { ID = i, Name = ConfigObjects[i].NameInProgramm});
+                CharacterTypes.Add(new CharacterType() { ID = i, Name = ConfigObjects[i].NameInProgramm });
             }
         }
 
@@ -128,6 +134,11 @@ namespace Eternity_Dialoger.Models
         public void AddDialogeObject()
         {
             DialogueObjects.Add(new DialogueObject());
+        }
+
+        public void AddConfigObject()
+        {
+            ConfigObjects.Add(new ConfigObject(ConfigObjects.Count) {NameInProgramm="--Имя--", BindedVoiceID=0});
         }
 
         public void RemoveDialogueObject()

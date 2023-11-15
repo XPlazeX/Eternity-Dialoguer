@@ -8,7 +8,8 @@
         Title="Eternity Dialoguer: Config"
         Icon="/resources/EternityDialoguerIcon.png"
         Background="{DynamicResource commonBG}"
-        Height="496" Width="450" MinWidth="450" MinHeight="250" MaxWidth="450" Loaded="Window_Loaded">
+        WindowStartupLocation="CenterScreen"
+        Height="600" Width="450" MinWidth="480" MinHeight="250" MaxWidth="480" Loaded="Window_Loaded">
     <Window.Resources>
         <SolidColorBrush Color="#FF242429" x:Key="commonBG"/>
         <SolidColorBrush Color="#FF32323C" x:Key="lightenBG"/>
@@ -19,6 +20,9 @@
             <Setter Property="Height" Value="35"/>
             <Setter Property="Background" Value="{StaticResource headerBG}"/>
             <Setter Property="Foreground" Value="{StaticResource headerTextColor}"/>
+        </Style>
+        <Style TargetType="DataGridCell">
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
         </Style>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#FF46899c"/>
@@ -59,28 +63,26 @@
 
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="configGrid"
+        <DataGrid x:Name="configGrid" ItemsSource="{Binding ConfigObjects}"
             FontFamily="./resources/#galvanic" Margin="0,0,0,45" AutoGenerateColumns="False" BorderThickness="2" 
             BorderBrush="{StaticResource headerBG}" Background="{StaticResource commonBG}"
             HeadersVisibility="Column"
             CanUserAddRows="False" CanUserDeleteRows="False"
             CellStyle="{StaticResource Body_Content_Data_Grid_Centering}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="80" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Имя" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID" Width="80" IsReadOnly="True" Binding="{Binding Path=CharacterID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding Path=NameInProgramm}"></DataGridTextColumn>
                 <DataGridTemplateColumn Header="Наша речь?" Width="100" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox  HorizontalAlignment="Center"/>
+                            <CheckBox IsChecked="{Binding Path=IsHero, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="ID Голоса" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID Голоса" Width="100" Binding="{Binding Path=BindedVoiceID}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="addButton" Content="+" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c"/>
-        <Button x:Name="removeButton" Content="-" FontFamily="./resources/#galvanic" Margin="0,0,45,0" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c"/>
-        <Button x:Name="tipButton" Content="?" FontFamily="./resources/#galvanic" Margin="0,0,90,0" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c"/>
-        <Button x:Name="saveCloseButton" Content="Сохранить и выйти" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c"/>
+        <Button x:Name="addButton" Content="+" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Right" Width="40" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c" Click="addButton_Click"/>
+        <Button x:Name="saveCloseButton" Content="Сохранить и выйти" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Left" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FF46899c" Click="saveCloseButton_Click"/>
     </Grid>
 </Window>

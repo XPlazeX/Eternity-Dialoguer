@@ -102,6 +102,7 @@ namespace Eternity_Dialoger
         private void configButton_Click(object sender, RoutedEventArgs e)
         {
             ConfigWindow configWindow = new ConfigWindow();
+            configWindow.DataContext = App.ActiveViewModel;
             configWindow.Show();
         }
     }

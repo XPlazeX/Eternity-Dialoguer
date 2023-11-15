@@ -29,5 +29,28 @@ namespace Eternity_Dialoger
         {
             //Title = $"Eternity Dialoguer : Config: {FileHandler.ConfigFilePath}";
         }
+
+        private void saveCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Новых персонажей нельзя будет убрать, но редактировать значения можно будет всегда. Вы точно хотите сохранить изменения?",
+                "Подтверждение",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Information);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                FileHandler.SaveConfigFile(new List<ConfigObject>(App.ActiveViewModel.ConfigObjects));
+
+                App.ActiveViewModel.Load();
+
+                Close();
+            }
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ActiveViewModel.AddConfigObject();
+        }
     }
 }
