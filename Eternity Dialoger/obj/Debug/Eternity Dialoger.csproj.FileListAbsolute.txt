@@ -1,0 +1,28 @@
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe.config
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\bin\Debug\Eternity Dialoger.pdb
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger.csprojResolveAssemblyReference.cache
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\MainWindow.g.cs
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\App.g.cs
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.cache
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.lref
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\MainWindow.baml
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger.g.resources
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity_Dialoger.Properties.Resources.resources
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger.csproj.GenerateResource.Cache
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger.exe
+C:\Users\PlazeX\AppData\Local\Temporary Projects\Eternity Dialoger\obj\Debug\Eternity Dialoger.pdb
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe.config
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.exe
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.pdb
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\bin\Debug\Eternity Dialoger.exe
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\bin\Debug\Eternity Dialoger.pdb
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.csprojResolveAssemblyReference.cache
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\MainWindow.g.cs
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\App.g.cs
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.cache
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger_MarkupCompile.lref
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\MainWindow.baml
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.g.resources
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity_Dialoger.Properties.Resources.resources
+A:\Изображения\Инструменты\Eternity Dialoger\Eternity Dialoger\obj\Debug\Eternity Dialoger.csproj.GenerateResource.Cache
