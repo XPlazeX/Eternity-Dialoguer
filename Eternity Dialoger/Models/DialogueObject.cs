@@ -64,8 +64,4 @@ namespace Eternity_Dialoger.Models
         public int Time { get; set; }
     }
 
-    //public class ViewModel
-    //{
-    //public ObservableCollection<DialogueObject> DialogueObjects { get; set; }
-    //}
 }

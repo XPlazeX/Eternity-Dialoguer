@@ -9,35 +9,70 @@ namespace Eternity_Dialoger.Models
 {
     public class ViewModel
     {
+        const int min_message_symbols_for_shortest_voice = 18;
+        const int letters_per_voice_duration = 5;
+
         public ObservableCollection<DialogueObject> DialogueObjects { get; private set; }
         public ObservableCollection<CharacterType> CharacterTypes { get; private set; }
         public ObservableCollection<VoiceType> VoiceTypes { get; private set; }
         public ObservableCollection<DurationType> DurationTypes { get; private set; }
 
+        public ObservableCollection<ConfigObject> ConfigObjects { get; private set; }
+
         public ViewModel()
         {
             DialogueObjects = new ObservableCollection<DialogueObject>()
             {
-                new DialogueObject() {CharacterID = 1, Text="Приветствую тебя, создатель!" }
+                new DialogueObject() {CharacterID = 0, Text="Приветствую тебя, создатель!" }
             };
+            LoadDefaultVoices();
+            LoadDefaultDurations();
+            LoadConfig();
 
-            CharacterTypes = new ObservableCollection<CharacterType>()
+            CharacterTypes = new ObservableCollection<CharacterType>();
+
+            for (int i = 0; i < ConfigObjects.Count; i++)
             {
-                new CharacterType() {ID = 0, Name="№ Таро" },
-                new CharacterType() {ID = 1, Name="№ Таро ENNEAD" },
-                new CharacterType() {ID = 2, Name="№ Таро Утомлённый" },
-                new CharacterType() {ID = 3, Name="№ Таро ENNEAD Утомл" },
-                new CharacterType() {ID = 4, Name="№ Таро в шлеме" },
-                new CharacterType() {ID = 5, Name="Ъ Шум" },
-                new CharacterType() {ID = 6, Name="Ъ Бортовой ИИ" },
-                new CharacterType() {ID = 7, Name="Ъ И.Р.И.С." },
-                new CharacterType() {ID = 8, Name="Ъ Зевс" },
-                new CharacterType() {ID = 9, Name="Ъ Таро?" },
-                new CharacterType() {ID = 10, Name="Ъ Слабая частота" },
-                new CharacterType() {ID = 11, Name="Ъ Гипно-частота" },
-                new CharacterType() {ID = 12, Name="Ъ Высокая частота" },
+                CharacterTypes.Add(new CharacterType() { ID = i, Name = ConfigObjects[i].NameInProgramm});
+            }
+        }
+
+        public void LoadConfig()
+        {
+            ConfigObjects = new ObservableCollection<ConfigObject>(FileHandler.LoadConfigFile());
+
+            if (ConfigObjects.Count < 1)
+            {
+                InitNewConfig();
+            }
+        }
+
+        public void InitNewConfig()
+        {
+            List<ConfigObject> NewConfigList = new List<ConfigObject>()
+            {
+                new ConfigObject(0) {NameInProgramm = "№ Таро", IsHero = true, BindedVoiceID = 0},
+                new ConfigObject(1) {NameInProgramm = "№ Таро ENNEAD", IsHero = true, BindedVoiceID = 0},
+                new ConfigObject(2) {NameInProgramm = "№ Таро Утомлённый", IsHero = true, BindedVoiceID = 0},
+                new ConfigObject(3) {NameInProgramm = "№ Таро ENNEAD Утомл", IsHero = true, BindedVoiceID = 0},
+                new ConfigObject(4) {NameInProgramm = "№ Таро в шлеме", IsHero = true, BindedVoiceID = 1},
+                new ConfigObject(5) {NameInProgramm = "Ъ Шум", IsHero = false, BindedVoiceID = 11},
+                new ConfigObject(6) {NameInProgramm = "Ъ Бортовой ИИ", IsHero = false, BindedVoiceID = 8},
+                new ConfigObject(7) {NameInProgramm = "Ъ И.Р.И.С.", IsHero = false, BindedVoiceID = 9},
+                new ConfigObject(8) {NameInProgramm = "Ъ Зевс", IsHero = false, BindedVoiceID = 14},
+                new ConfigObject(9) {NameInProgramm = "Ъ Таро?", IsHero = false, BindedVoiceID = 3},
+                new ConfigObject(10) {NameInProgramm = "Ъ Слабая частота", IsHero = false, BindedVoiceID = 14},
+                new ConfigObject(11) {NameInProgramm = "Ъ Гипно-частота", IsHero = false, BindedVoiceID = 12},
+                new ConfigObject(12) {NameInProgramm = "Ъ Высокая частота", IsHero = false, BindedVoiceID = 13}
             };
 
+            FileHandler.SaveConfigFile(NewConfigList);
+
+            ConfigObjects = new ObservableCollection<ConfigObject>(FileHandler.LoadConfigFile());
+        }
+
+        public void LoadDefaultVoices()
+        {
             VoiceTypes = new ObservableCollection<VoiceType>()
             {
                 new VoiceType() {ID = 0, Name="Человек обычный" },
@@ -59,7 +94,10 @@ namespace Eternity_Dialoger.Models
                 new VoiceType() {ID = 16, Name="Монстр средний" },
                 new VoiceType() {ID = 17, Name="Монстр высший" },
             };
+        }
 
+        public void LoadDefaultDurations()
+        {
             DurationTypes = new ObservableCollection<DurationType>()
             {
                 new DurationType() {ID = 0, Time=3 },
@@ -97,9 +135,51 @@ namespace Eternity_Dialoger.Models
             DialogueObjects.RemoveAt(DialogueObjects.Count - 1);
         }
 
-        public void AddSelection()
+        public void AutoFields()
         {
+            for (int i = 0; i < DialogueObjects.Count; i++)
+            {
+                DialogueObject d = DialogueObjects[i];
+                int characterID = DialogueObjects[i].CharacterID;
 
+                for (int j = 0; j < ConfigObjects.Count; j++)
+                {
+                    if (ConfigObjects[j].CharacterID == characterID)
+                    {
+                        DialogueObjects[i].IsHero = ConfigObjects[j].IsHero;
+                        DialogueObjects[i].VoiceID = ConfigObjects[j].BindedVoiceID;
+
+                        if (string.IsNullOrEmpty(DialogueObjects[i].Text))
+                        {
+                            DialogueObjects[i].DurationID = 0;
+                            break;
+                        }
+
+                        int messageLen = DialogueObjects[i].Text.Length;
+                        int voiceLen = 3;
+
+                        int additiveLen = (int)Math.Ceiling((1f * messageLen - min_message_symbols_for_shortest_voice) / letters_per_voice_duration);
+
+                        if (additiveLen > 0)
+                            voiceLen += additiveLen;
+
+                        int selectedDurationID = -1;
+                        for (int l = 0; l < DurationTypes.Count; l++)
+                        {
+                            if (DurationTypes[l].Time <= voiceLen)
+                                selectedDurationID++;
+                            else
+                                break;
+                        }
+
+                        DialogueObjects[i].DurationID = selectedDurationID;
+                        break;
+                    }
+                }
+            }
+
+            
+            //SetData(new List<DialogueObject>(DialogueObjects));
         }
     }
 }

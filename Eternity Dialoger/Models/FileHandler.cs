@@ -11,6 +11,8 @@ namespace Eternity_Dialoger.Models
     {
         public static string FilePath { get; private set; }
 
+        private const string config_filename = "\\Config.txt";
+
         public static List<DialogueObject> OpenCSVFile(string path)
         {
             FilePath = path;
@@ -71,6 +73,73 @@ namespace Eternity_Dialoger.Models
             }
 
             streamWriter.Close();
+        }
+
+        public static void SaveConfigFile(List<ConfigObject> configObjects)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + config_filename;
+            StreamWriter streamWriter = new StreamWriter(path, false);
+
+            for (int i = 0; i < configObjects.Count; i++)
+            {
+                string[] datas = new string[5];
+
+                datas[0] = configObjects[i].CharacterID.ToString();
+                datas[1] = configObjects[i].NameInProgramm;
+
+                if (configObjects[i].IsHero)
+                    datas[2] = "1";
+                else
+                    datas[2] = "0";
+
+                datas[3] = configObjects[i].BindedVoiceID.ToString();
+
+                streamWriter.WriteLine(string.Join(";", datas));
+            }
+
+            streamWriter.Close();
+        }
+
+        public static List<ConfigObject> LoadConfigFile()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + config_filename;
+
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+            }
+
+            StreamReader streamReader = new StreamReader(path);
+
+            List<ConfigObject> outputList = new List<ConfigObject>();
+
+            string[] rowData;
+            char[] separators = { ';' };
+
+            string data = streamReader.ReadLine();
+
+            while (data != null)
+            {
+                rowData = data.Split(separators);
+
+                ConfigObject c = new ConfigObject(int.Parse(rowData[0]));
+
+                c.NameInProgramm = rowData[1];
+
+                if (rowData[2] == "1")
+                    c.IsHero = true;
+                else
+                    c.IsHero = false;
+
+                c.BindedVoiceID = int.Parse(rowData[3]);
+
+                outputList.Add(c);
+
+                data = streamReader.ReadLine();
+            }
+            streamReader.Close();
+
+            return outputList;
         }
     }
 }

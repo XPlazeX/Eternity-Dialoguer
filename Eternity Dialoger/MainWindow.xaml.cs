@@ -91,5 +91,18 @@ namespace Eternity_Dialoger
         {
             constructGrid.SelectedIndex = -1;
         }
+
+        private void autoButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.ActiveViewModel.AutoFields();
+
+            constructGrid.Items.Refresh();
+        }
+
+        private void configButton_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigWindow configWindow = new ConfigWindow();
+            configWindow.Show();
+        }
     }
 }

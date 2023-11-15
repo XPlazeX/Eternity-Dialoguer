@@ -40,3 +40,5 @@ A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\MainWindow.baml
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.g.resources
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity_Dialoger.Properties.Resources.resources
 A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\Eternity Dialoger.csproj.GenerateResource.Cache
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\ConfigWindow.g.cs
+A:\GIT\Eternity-Dialoguer\Eternity Dialoger\obj\Debug\ConfigWindow.baml

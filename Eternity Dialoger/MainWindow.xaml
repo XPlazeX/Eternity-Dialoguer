@@ -8,7 +8,7 @@
         Title="Eternity Dialoguer"
         Icon="/resources/EternityDialoguerIcon.png"
         Background="{DynamicResource commonBG}"
-        Height="496" Width="1348" Loaded="Window_Loaded" MinWidth="1000" MinHeight="250" MaxWidth="1348">
+        Height="496" Width="1348" Loaded="Window_Loaded" MinWidth="1348" MinHeight="250" MaxWidth="1400">
     <Window.Resources>
         <SolidColorBrush Color="#FF242429" x:Key="commonBG"/>
         <SolidColorBrush Color="#FF32323C" x:Key="lightenBG"/>
@@ -127,11 +127,13 @@
                 <DataGridTextColumn Binding="{Binding Path=Text}" Header="Текст (Окно открыто с учётом максимальной длины сообщения)" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button" Content="+ Добавить фразу" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Right" Width="200" Height="40" VerticalAlignment="Bottom" Click="button_Click" BorderBrush="#FFF3FF00"/>
-        <Button x:Name="delButton" Content="- Удалить фразу" FontFamily="./resources/#galvanic" Margin="0,0,205,0" HorizontalAlignment="Right" Width="200" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFFF8000"  Click="delButton_Click"/>
-        <Button x:Name="openButton" Content="Открыть CSV" FontFamily="./resources/#galvanic" Margin="0,0,410,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="openButton_Click"/>
-        <Button x:Name="saveButton" Content="Сохранить CSV" FontFamily="./resources/#galvanic" Margin="0,0,565,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="saveButton_Click"/>
-        <Button x:Name="clButton" Content="Снять выделение" FontFamily="./resources/#galvanic" Margin="0,0,720,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="clButton_Click"/>
+        <Button x:Name="button" Content="+ Добавить фразу" FontFamily="./resources/#galvanic" Margin="0,0,0,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" Click="button_Click" BorderBrush="#FFF3FF00"/>
+        <Button x:Name="delButton" Content="- Удалить фразу" FontFamily="./resources/#galvanic" Margin="0,0,155,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFFF8000"  Click="delButton_Click"/>
+        <Button x:Name="openButton" Content="Открыть CSV" FontFamily="./resources/#galvanic" Margin="0,0,310,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="openButton_Click"/>
+        <Button x:Name="saveButton" Content="Сохранить CSV" FontFamily="./resources/#galvanic" Margin="0,0,465,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="saveButton_Click"/>
+        <Button x:Name="clButton" Content="Снять выделение" FontFamily="./resources/#galvanic" Margin="0,0,620,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="clButton_Click"/>
+        <Button x:Name="autoButton" Content="Автополя" FontFamily="./resources/#galvanic" Margin="0,0,775,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="autoButton_Click"/>
+        <Button x:Name="configButton" Content="Настройки" FontFamily="./resources/#galvanic" Margin="0,0,930,0" HorizontalAlignment="Right" Width="150" Height="40" VerticalAlignment="Bottom" BorderBrush="#FFF3FF00" Click="configButton_Click"/>
         <Label x:Name="counterLabel" Content="Label" FontFamily="./resources/#galvanic" HorizontalAlignment="Left" Margin="10,0,0,10" Width="220" Foreground="#FFF3FF00" Height="24" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
